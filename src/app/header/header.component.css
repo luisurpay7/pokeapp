@@ -1,0 +1,13 @@
+/* :host {
+  background-color: black;
+} */
+
+.title {
+  background-color: rgb(13,23,33);
+  height: 80px;
+}
+h1 {
+  text-align: center;
+  line-height: 80px;
+  color: #fff;
+}

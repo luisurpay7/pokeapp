@@ -1,0 +1,10 @@
+.footer {
+  background-color: rgb(13,23,33);
+  height: 100px;
+}
+
+p {
+  color: #fff;
+  line-height: 100px;
+  text-align: center;
+}

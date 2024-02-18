@@ -1,0 +1,20 @@
+* {
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+ul {
+  background-color: #141E38;
+}
+li {
+  display: inline-block;
+  width: 70px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+li:hover {
+  background-color: rgb(13,23,33);
+}
