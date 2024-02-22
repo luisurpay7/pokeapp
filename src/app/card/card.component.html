@@ -1,5 +1,62 @@
-<!-- <p>card works!</p> -->
-<div class="content">
-  <img src="{{pokemon.image}}" alt="">
-  {{pokemon.name}}
+<div class="content" data-bs-toggle="modal" data-bs-target="#myModal2">
+  <div class="image">
+    <img src="{{pokemon.image}}" alt="">
+  </div>
+  #{{numero+1}} {{pokemon.name}}
+  <!-- Button para abrir modal sin usar bootstrap.min.js y capturar evento
+  <button class="btn btn-primary" (click)="openModal()">Detalle</button> -->
+  <!-- Button para abrir modal con bootstrap.min.js
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal2">
+    Open modal
+  </button> -->
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" (click)="closeModal()" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closeModal()" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- The Modal2 -->
+<div class="modal" id="myModal2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading 2</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
 </div>
