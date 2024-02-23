@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PokemonService } from '../pokemon.service';
-import { IPokemon } from '../intefaces/pokemon.interface';
+import { IMyPokemon } from '../interfaces/mypokemon.interface';
+import { IPokemon } from '../interfaces/pokemon.interface';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +10,31 @@ import { IPokemon } from '../intefaces/pokemon.interface';
 })
 export class HomeComponent {
 
-  pokemones: IPokemon[] = [];
+  pokemones: IMyPokemon[] = [];
+  dataPokemon: IPokemon = {} as IPokemon;
 
   constructor(private pokemonService: PokemonService){}
 
   ngOnInit(){
     this.pokemonService.getAll().subscribe(response => {
-      // console.log(response)
       this.pokemones = response;
     });
+  }
+
+  showModal(id: number){
+    this.pokemonService.getById(id).subscribe(response => {
+      this.dataPokemon = response;
+      const element = document.getElementById("pokemonModal");
+      if(element){
+        element.style.display = 'block';
+      }
+    });
+  }
+
+  closeModal() {
+    const element = document.getElementById("pokemonModal");
+    if(element){
+      element.style.display = 'none';
+    }
   }
 }
