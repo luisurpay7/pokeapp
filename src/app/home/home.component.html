@@ -1,4 +1,4 @@
-<div class="content">
+<div class="card-list-pokemon">
   <app-card *ngFor="let poke of pokemones; index as i" [pokemon]="poke" [numero]="i" (showModal)="showModal($event)"></app-card>
 </div>
 

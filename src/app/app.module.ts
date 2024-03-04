@@ -14,6 +14,7 @@ import { PokemonService } from './pokemon.service';
 import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
 ];

@@ -1,4 +1,4 @@
-.content {
+.card-pokemon {
   border: 1px solid #cfcaca;
   border-radius: 3px;
   box-shadow: 1px 1px 5px #cfcaca;
@@ -6,10 +6,11 @@
   width: 200px;
   height: 200px;
   text-align: center;
-  margin: 10px;
+  /* margin: 10px; */
+  /* margin: 0 auto; */
 }
 
-.content:hover {
+.card-pokemon:hover {
   border: 1px solid #646464;
   box-shadow: 1px 1px 5px #666666;
 }
