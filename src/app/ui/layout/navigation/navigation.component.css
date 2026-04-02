@@ -1,8 +1,7 @@
-* {
-  /* font-family: Arial, Helvetica, sans-serif; */
-}
 ul {
-  background-color: #141E38;
+  background-color: #141e38;
+  margin: 0;
+  padding: 0;
 }
 li {
   display: inline-block;
@@ -16,5 +15,5 @@ a {
   text-decoration: none;
 }
 li:hover {
-  background-color: rgb(13,23,33);
+  background-color: rgb(13, 23, 33);
 }

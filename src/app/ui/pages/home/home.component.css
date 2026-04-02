@@ -1,13 +1,10 @@
 :host {
-  display: inline-block;
-  min-height: 78vh;
-  width: 100%;
+  display: block;
+  width: 90%;
+  margin: 15px auto;
 }
 
 .card-list-pokemon {
-  width: 80%;
-  margin: 30px auto;
-
   /* USO DE DISPLAY GRID */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

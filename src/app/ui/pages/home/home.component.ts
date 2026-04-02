@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PokemonService } from '../../../core/services';
 import { IMyPokemon, IPokemon } from '../../../core/interfaces';
+import { PokemonService } from '../../../core/services';
 
 @Component({
   selector: 'app-home',
