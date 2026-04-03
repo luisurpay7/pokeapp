@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IMyPokemon, IPokemon } from '../../../core/interfaces';
+import {
+  IMyPokemon,
+  IPokemon,
+  PaginatedResponse,
+} from '../../../core/interfaces';
 import { PokemonService } from '../../../core/services';
 
 @Component({
@@ -8,15 +12,50 @@ import { PokemonService } from '../../../core/services';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  pokemones: IMyPokemon[] = [];
+  data?: PaginatedResponse<IMyPokemon>;
   dataPokemon: IPokemon = {} as IPokemon;
+
+  limit: number = 24;
+  offset: number = 0;
+  searchTerm?: string;
 
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit() {
-    this.pokemonService.getAll().subscribe((response) => {
-      this.pokemones = response;
-    });
+    this.cargarData();
+  }
+
+  cargarData() {
+    this.pokemonService
+      .getAll(this.limit, this.offset, this.searchTerm)
+      .subscribe((response) => {
+        this.data = response;
+      });
+  }
+
+  previousPage() {
+    if (this.offset > 0) {
+      this.offset -= this.limit;
+      this.cargarData();
+    }
+  }
+
+  nextPage() {
+    this.offset += this.limit;
+    this.cargarData();
+  }
+
+  onPageSizeChange(event: Event) {
+    this.limit = Number((event.target as HTMLSelectElement).value);
+    this.offset = 0;
+    this.cargarData();
+  }
+
+  searchPokemon(searchTerm: string) {
+    this.offset = 0;
+    this.limit = 24;
+    this.searchTerm = searchTerm;
+    this.cargarData();
   }
 
   showModal(id: number) {

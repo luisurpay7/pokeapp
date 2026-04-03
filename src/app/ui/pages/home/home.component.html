@@ -1,12 +1,45 @@
+<div class="search-options">
+  <input
+    type="text"
+    #searchInput
+    (keyup)="searchPokemon(searchInput.value)"
+    placeholder="Buscar Pokemon"
+    class="form-control"
+  />
+  <!-- <button (click)="searchPokemon(searchInput.value)" class="btn btn-primary">
+    Buscar
+  </button> -->
+</div>
+
 <div class="card-list-pokemon">
   <app-card
-    *ngFor="let poke of pokemones; index as i"
+    *ngFor="let poke of data?.items; index as i"
     [pokemon]="poke"
-    [numero]="i"
+    [numero]="offset + i + 1"
     (showModal)="showModal($event)"
   ></app-card>
 </div>
-<!-- <button>Atrás</button> -->
+<div class="pagination-options">
+  <button
+    (click)="previousPage()"
+    [disabled]="offset === 0"
+    class="btn btn-primary"
+  >
+    Atrás
+  </button>
+  <button
+    (click)="nextPage()"
+    [disabled]="data?.currentPage === data?.totalPages"
+    class="btn btn-primary"
+  >
+    Siguiente
+  </button>
+  <select class="form-select" (change)="onPageSizeChange($event)">
+    <option value="24">24</option>
+    <option value="48">48</option>
+    <option value="72">72</option>
+  </select>
+</div>
 
 <!-- The Modal -->
 <div class="modal" id="pokemonModal">
